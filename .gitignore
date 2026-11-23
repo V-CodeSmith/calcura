@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+
+# Nuxt build output
+.nuxt
+.output
+.data
+.nitro
+.cache
+dist
+
+# PWA generated files
+public/sw.js
+public/workbox-*.js
+public/registerSW.js
+public/manifest.webmanifest
+dev-dist
+
+# Test & tooling output
+coverage
+
+# Local env
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+dev.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json

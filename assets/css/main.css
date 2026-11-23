@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply bg-surface-light font-sans text-slate-900 antialiased transition-colors duration-300;
+  }
+
+  html.dark body {
+    @apply bg-[#0b1020] text-slate-100;
+  }
+
+  ::selection {
+    @apply bg-brand-500/25;
+  }
+}
+
+@layer utilities {
+  /* Keeps the display from shifting when digits change width. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Long expressions scroll inside the display without a visible scrollbar. */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* History drawer transitions (see <Transition name="fade" / "slide">). */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 180ms ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
